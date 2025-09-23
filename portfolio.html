@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Min Zay Ya — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name — Frontend developer & game dev." />
+  
+  <link rel="icon" type="image/png" href="./Images/kuronekopfp.jpg" />
+  <!-- Or for PNG: -->
+  <!-- <link rel="icon" type="image/png" href="./Images/logo.png" /> -->
+
+  <style>
+    :root {
+      --bg: #282529; /* Raisin Black */
+      --card: #251A10; /* Licorice */
+      --muted: #5693BB; /* Celestial Blue */
+      --accent: #c87114; /* Ochre */
+      --accent-secondary: #894223; /* Russet */
+      --glass: rgba(40, 37, 41, 0.03); /* Raisin Black with opacity */
+      --radius: 16px;
+      --container: 1100px;
+      --ff-sans: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body {
+      margin: 0;
+      font-family: var(--ff-sans);
+      background: linear-gradient(180deg, #282529 0%, #251A10 100%);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #F5F5F5; /* Light text for contrast */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.4;
+      padding: 32px 20px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .wrap{max-width:var(--container);margin:0 auto}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-secondary));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fdf4ff;font-size:18px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:stretch;margin-bottom:28px}
+    .hero .card{height:100%;display:flex;flex-direction:column;justify-content:center}
+
+    .card {
+      background: linear-gradient(180deg, #251A10 80%, #282529 100%);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(40,37,41,0.8), 0 1.5px 0 0 #C97314;
+      border: 2px solid #894223;
+      padding: 28px 24px; /* Add padding inside cards */
+    }
+    .intro h1{margin:0;font-size:28px}
+    .intro p{color:var(--muted);margin-top:10px}
+
+    .cta{margin-top:16px;display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary {
+      background: linear-gradient(90deg, #C97314, #894223);
+      color: #F5F5F5;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #894223, #C97314);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(201,115,20,0.18);
+      transform: translateY(-2px) scale(1.04);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #C97314;
+      border: 1px solid rgba(201,115,20,0.3);
+    }
+    .btn-ghost:hover {
+      background: #C97314;
+      color: #fff;
+      border-color: #894223;
+      box-shadow: 0 2px 12px rgba(201,115,20,0.18);
+      transform: translateY(-2px) scale(1.04);
+      transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .profile{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+    .avatar{width:160px;height:160px;border-radius:18px;background:linear-gradient(180deg,#1f1033,#0a0a0f);display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;color:#d8b4fe}
+    .meta{color:var(--muted)}
+
+    main{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .projects{display:grid;gap:12px}
+
+    iframe.project-embed{width:100%;height:167px;border:none;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.6);transition:transform 0.3s ease, box-shadow 0.3s ease}
+    iframe.project-embed:hover{transform:scale(1.02);box-shadow:0 6px 18px rgba(168,85,247,0.6)}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:var(--glass);padding:8px 10px;border-radius:10px;font-weight:600;color:var(--muted);font-size:13px}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}.avatar{width:140px;height:140px}}
+    @media (max-width:640px){nav{display:none}.grid-3{grid-template-columns:1fr}body{padding:18px}.avatar{width:120px;height:120px}.hero{gap:18px}}
+
+    .muted{color:var(--muted)}
+    .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+    .projects div[style*="overflow:auto"]::-webkit-scrollbar {
+      width: 8px;
+      background: #251A10;
+      border-radius: 8px;
+    }
+    .projects div[style*="overflow:auto"]::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #C97314, #894223);
+      border-radius: 8px;
+    }
+    .projects div[style*="overflow:auto"]::-webkit-scrollbar-thumb:hover {
+      background: #C97314;
+    }
+    /* For Firefox */
+    .projects div[style*="overflow:auto"] {
+      scrollbar-width: thin;
+      scrollbar-color: #C97314 #251A10;
+    }
+
+    .profile .meta a svg {
+      fill: var(--accent);
+      transition: fill 0.2s;
+    }
+    .profile .meta a:hover svg {
+      fill: var(--accent-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <img src="./Images/kuronekopfp.jpg" alt="Logo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" />
+        </div>
+        <div>
+          <div style="font-weight:800">Min Zay Ya</div>
+          <div class="muted" style="font-size:13px">Unity Developer · Gameplay Programmer</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card intro">
+        <div class="label">Hi, I’m</div>
+        <h1>Min Zay Ya — Creating fun, immersive, and interactive experiences using Unity.</h1>
+        <p>Unity Developer creating engaging gameplay and interactive experiences. Skilled in C#, OOP, and UI/UX, I turn ideas into complete games from concept to release.</p>
+        <div class="cta">
+          <a href="https://docs.google.com/document/d/1f3n29bxTnmE2KdsBSeUlB2L8mnchPszx/edit?usp=sharing&ouid=114482251036299912396&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <button class="btn btn-primary">Download CV</button>
+          </a>
+          <a href="https://drive.google.com/file/d/1fr-hKSRsohQgJztqLtiHpqJ4XkmCPvOE/view?usp=sharing" target="_blank" rel="noopener">
+            <button class="btn btn-primary">Download Portfolio</button>
+          </a>
+          <a href="https://github.com/kuroNeko-23" target="_blank" rel="noopener">
+            <button class="btn btn-ghost">View on GitHub</button>
+          </a>
+        </div>
+
+        <div style="margin-top:18px">
+          <div class="label">Current focus</div>
+          <div class="muted" style="margin-top:6px">Working on a narrative 3D game built in Unity — gameplay, dialogue, and polish.</div>
+        </div>
+      </div>
+
+      <aside class="card profile">
+        <img src=".\Images\profile.jpg" alt="Profile picture" style="width:120px;height:120px;object-fit:cover;border-radius:18px;" />
+        <div style="font-weight:700; font-size:1.5rem;">Min Zay Ya</div>
+        <div class="meta" style="display:flex;gap:16px;justify-content:center;">
+          <a href="https://github.com/kuroNeko-23" target="_blank" rel="noopener" title="GitHub">
+            <!-- GitHub SVG Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.34 6.84 9.69.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.36-3.37-1.36-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.18 9.18 0 0 1 2.5-.34c.85 0 1.71.11 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="mailto:minzayya.augustinerichard@gmail.com" target="_blank" rel="noopener" title="Email">
+            <!-- Email SVG Icon -->
+            <svg width="24" height="24" fill="#a855f7" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm-16 12V8.99l8 6.99 8-6.99V18H4z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/minzayya-kuroneko" target="_blank" rel="noopener" title="LinkedIn">
+            <!-- LinkedIn SVG Icon -->
+            <svg width="24" height="24" fill="#a855f7" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.5c.41-.59 1.09-1.5 2.5-1.5 1.93 0 3.5 1.57 3.5 3.5v6.5z"/></svg>
+          </a>
+        </div>
+        
+      </aside>
+    </section>
+
+    <main>
+      <section id="about" class="card">
+        <div class="label">About</div>
+        <h2>About me</h2>
+        <p class="muted">I’m a Unity Developer passionate about crafting engaging gameplay and interactive experiences. With 3 years of hands-on experience in designing and developing games using Unity and C#, I love turning ideas into playable realities. Skilled in object-oriented programming, algorithms, and UI/UX, I thrive on both solo projects and collaborative Game Jams. Here are some of my latest creations that showcase my journey from concept to release.</p>
+        
+        <h2 style="margin-top:28px;">What I do</h2>
+        
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px;">
+          <!-- Unity Development -->
+          <div style="display:flex;align-items:center;gap:18px; margin-top:0; padding:10px 0;">
+            <img src="./Images/unity_logo_colorPalettefixed.svg" alt="SVG Logo" width="56" height="56" />
+            <div>
+              <div style="font-weight:900;font-size:24px;line-height:1.2;">Unity Development</div>
+              <div class="muted" style="font-size:17px;line-height:1.5;margin-top:8px;">
+                Design and develop games in Unity using C#, taking them from concept to launch.
+              </div>
+            </div>
+          </div>
+
+          <!-- Gameplay Programming -->
+          <div style="display:flex;align-items:center;gap:18px; margin-top:0; padding:10px 0;">
+            <img src="./Images/gamecontroller_colorPaletteFixed.svg" alt="SVG Logo" width="56" height="56" />
+            <div>
+              <div style="font-weight:900;font-size:24px;line-height:1.2;">Gameplay Programming</div>
+              <div class="muted" style="font-size:17px;line-height:1.5;margin-top:8px;">
+                Programming interactive and engaging gameplay mechanics that enhance player experience and drive game systems.
+              </div>
+            </div>
+          </div>
+
+          <!-- Level Design -->
+          <div style="display:flex;align-items:center;gap:18px; margin-top:0; padding:10px 0;">
+            <img src="./Images/maze_colorpalettefixed.svg" alt="SVG Logo" width="56" height="56" />
+            <div>
+              <div style="font-weight:900;font-size:24px;line-height:1.2;">Level Design/ Prototyping</div>
+              <div class="muted" style="font-size:17px;line-height:1.5;margin-top:8px;">
+                Designing immersive levels and rapid prototypes that bring gameplay ideas to life.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+      <section id="projects" class="card projects">
+        <div class="label">Projects</div>
+        <h2>Recent projects</h2>
+
+        <div style="max-height:180px; overflow:auto;">
+          <div class="grid-3">
+            <iframe frameborder="0" src="https://itch.io/embed/3472758?bg_color=000000&amp;fg_color=ffffff&amp;link_color=b6abab&amp;border_color=333333" width="552" height="167"></iframe>
+            <iframe frameborder="0" src="https://itch.io/embed/3820795?bg_color=000000&amp;fg_color=800000&amp;link_color=f6a129&amp;border_color=444444" width="552" height="167"></iframe>
+            <iframe frameborder="0" src="https://itch.io/embed/3780207?bg_color=eed3cd&amp;fg_color=000000&amp;link_color=b891de&amp;border_color=bebebe" width="552" height="167"></iframe>
+          </div>
+        </div>
+
+        <!-- Featured Videos Section -->
+        <h2 style="margin-top:32px;">Featured Videos</h2>
+        <div style="display:flex;flex-direction:column;gap:18px;margin-top:12px;">
+          <div style="display:flex;align-items:flex-start;gap:18px;">
+            <iframe width="360" height="202" src="https://www.youtube.com/embed/3dBXZT_cajE?si=cXhNklZojpvJo5zk" title="A Victim's Whisper Gameplay Live Stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div>
+              <div style="font-weight:700;font-size:18px;line-height:1.3;">A Victim's Whisper playthrough Live Stream</div>
+              <div class="muted" style="font-size:15px;line-height:1.5;margin-top:6px;">A full live playthrough of the game by popular local streamer APM.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:18px;">
+            <iframe width="360" height="202" src="https://www.youtube.com/embed/DhY-S6CTTow?si=IvibcVTfPkC6NVhl&amp;start=595" title="a.m. Demo featured video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div>
+              <div style="font-weight:700;font-size:18px;line-height:1.3;">A.M. Demo: Featured Gameplay by Game Makers Myanmar</div>
+              <div class="muted" style="font-size:15px;line-height:1.5;margin-top:6px;">Top 10 games from Game Makers Myanmar 2025, featuring a.m.’s demo and gameplay showcase.</div>
+            </div>
+          </div>
+        </div>
+         
+      </section>
+
+      <section id="skills" class="card">
+        <div class="label">Skills</div>
+        <h2>Proficiency</h2>
+        <div class="skills">
+          <span class="skill">C# / Unity Development</span>
+          <span class="skill">Gameplay programming</span>
+          <span class="skill">Level Design</span>
+          <span class="skill">Prototyping</span>
+          <span class="skill">Object Oriented Design</span>
+        </div>
+        
+        <h2>Tech and Tools</h2>
+        <div class="skills">
+          <span class="skill">Unity</span>
+          <span class="skill">Visual Studio</span>
+          <span class="skill">GitHub</span>
+        </div>
+        
+        <h2>Programming Languages</h2>
+        <div class="skills">
+          <span class="skill">C#</span>
+          <span class="skill">C++</span>
+          <span class="skill">Python</span>
+          <span class="skill">Java</span>
+        </div>
+      </section>
+
+      <section id="contact" class="card">
+        <div class="label">Contact</div>
+        <h2>Get in touch</h2>
+        <p class="muted">I’m available for full-time roles and freelance Game/Unity work. Reach out and we’ll chat!</p>
+        <p style="margin-top:12px"><strong>Email:</strong> minzayya.augustinerichard@gmail.com</p>
+        <p><strong>LinkedIn:</strong> linkedin.com/in/minzayya-kuroneko</p>
+      </section>
+    </main>
+
+    <footer>
+      Min Zay Ya - 2025
+    </footer>
+  </div>
+</body>
+</html>

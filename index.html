@@ -137,6 +137,39 @@
     .profile .meta a:hover svg {
       fill: var(--accent-secondary);
     }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+    }
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modal-close:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -155,6 +188,7 @@
       <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#recognition">Features</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -210,7 +244,13 @@
       <section id="about" class="card">
         <div class="label">About</div>
         <h2>About me</h2>
-        <p class="muted">I’m a Unity Developer passionate about crafting engaging gameplay and interactive experiences. With 3 years of hands-on experience in designing and developing games using Unity and C#, I love turning ideas into playable realities. Skilled in object-oriented programming, algorithms, and UI/UX, I thrive on both solo projects and collaborative Game Jams. Here are some of my latest creations that showcase my journey from concept to release.</p>
+        <p class="muted">I’m a Unity developer who specializes in survival horror and psychological horror—games 
+          that get under your skin, build tension through atmosphere, and make every sound or shadow matter. 
+          What drives me isn’t just scaring players, but creating emotional experiences: dread, uncertainty, the feeling of being watched, the pressure of limited resources, or the slow unraveling of a story. 
+          My experience comes from building full projects that turn ideas into tense, atmospheric gameplay.
+          
+          Notable works include a.m., a survival-horror game featured among the top entries in a Game Jam, and A Victim’s Whisper, a psychological horror project focused on storytelling and mood. 
+          These games strengthened my skills in C#, OOP, UI/UX, and crafting gameplay systems that support narrative and tension.</p>
         
         <h2 style="margin-top:28px;">What I do</h2>
         
@@ -255,21 +295,41 @@
         <div class="label">Projects</div>
         <h2>Recent projects</h2>
 
-        <div style="max-height:180px; overflow:auto;">
-          <div class="grid-3">
+        <div>
             <iframe frameborder="0" src="https://itch.io/embed/3820795?bg_color=000000&amp;fg_color=800000&amp;link_color=f6a129&amp;border_color=444444" width="552" height="167"></iframe>
-            
             <iframe frameborder="0" src="https://itch.io/embed/3472758?bg_color=000000&amp;fg_color=ffffff&amp;link_color=b6abab&amp;border_color=333333" width="552" height="167"></iframe>
-            
             <iframe frameborder="0" src="https://itch.io/embed/3780207?bg_color=eed3cd&amp;fg_color=000000&amp;link_color=b891de&amp;border_color=bebebe" width="552" height="167"></iframe>
-          </div>
         </div>
+          
 
         <!-- "See More" Button -->
         <div style="text-align:center; margin-top:18px;">
           <a href="https://kuroneko14.itch.io" target="_blank" rel="noopener">
             <button class="btn btn-primary">See More</button>
           </a>
+        </div>
+
+        
+      </section>
+
+      <section id="recognition" class="card">
+        <div class="label">Recognition & Features</div>
+        <h2>Featured Events</h2>
+        
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:18px;">
+          <!-- Event 1 -->
+          <div style="padding:16px;border-left:4px solid var(--accent);background:rgba(201,115,20,0.08);border-radius:8px;">
+            <div style="font-weight:700;font-size:16px;">a.m. Featured at the Cultural & Creative Industries Forum 2025</div>
+            <div class="muted" style="font-size:14px;margin-top:4px;">Showcased at the Myanmar Game Corner</div>
+            <div class="muted" style="font-size:13px;margin-top:6px;">Survival horror title presented during a major cultural and creative industry event.</div>
+            
+            <!-- Image Placeholders -->
+            <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+              <img src="./Images/eventbanner.png" alt="Event showcase 1" class="event-image" style="width:180px;height:180px;object-fit:cover;border-radius:8px;background:#3a3a3a;cursor:pointer;" />
+              <img src="./Images/showcaseimage1.jpg" alt="Event showcase 2" class="event-image" style="width:180px;height:180px;object-fit:cover;border-radius:8px;background:#3a3a3a;cursor:pointer;" />
+              <img src="./Images/showcaseimage2.jpg" alt="Event showcase 3" class="event-image" style="width:180px;height:180px;object-fit:cover;border-radius:8px;background:#3a3a3a;cursor:pointer;" />
+            </div>
+          </div>
         </div>
 
         <!-- Featured Videos Section -->
@@ -288,7 +348,7 @@
             <iframe width="360" height="202" src="https://www.youtube.com/embed/DhY-S6CTTow?si=IvibcVTfPkC6NVhl&amp;start=595" title="a.m. Demo featured video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div>
               <div style="font-weight:700;font-size:18px;line-height:1.3;">a.m. Demo: Featured Gameplay by Game Makers Myanmar</div>
-              <div class="muted" style="font-size:15px;line-height:1.5;margin-top:6px;">Top 10 games from Game Makers Myanmar 2025, featuring a.m.’s demo and gameplay showcase.</div>
+              <div class="muted" style="font-size:15px;line-height:1.5;margin-top:6px;">Top 10 games from Game Makers Myanmar 2025, featuring a.m.'s demo and gameplay showcase.</div>
             </div>
           </div>
 
@@ -300,7 +360,7 @@
             </div>
           </div>
         </div>
-         
+        
       </section>
 
       <section id="skills" class="card">
@@ -342,6 +402,36 @@
     <footer>
       Min Zay Ya - 2025
     </footer>
+
+    <!-- Modal for zoomed image -->
+    <div id="imageModal" class="modal">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modalImage" src="" alt="Zoomed image" />
+    </div>
+
+    <script>
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const closeBtn = document.querySelector('.modal-close');
+      const eventImages = document.querySelectorAll('.event-image');
+
+      eventImages.forEach(img => {
+        img.addEventListener('click', function() {
+          modal.classList.add('active');
+          modalImage.src = this.src;
+        });
+      });
+
+      closeBtn.addEventListener('click', function() {
+        modal.classList.remove('active');
+      });
+
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    </script>
   </div>
 </body>
 </html>
